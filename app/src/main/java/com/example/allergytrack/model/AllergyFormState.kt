@@ -1,4 +1,5 @@
 package com.example.allergytrack.model
+
 data class AllergyFormState(
     val tanggalPaparan: String = "",
     val jamMakan: String = "",
