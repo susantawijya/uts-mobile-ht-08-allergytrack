@@ -1,35 +1,77 @@
-# AllergyTrack (HT-08)
+# AllergyTrack (HT-08) - HealthTrack Mobile Suite
 
-Prototipe UTS Pemrograman Bergerak untuk mencatat paparan makanan dan keluhan yang muncul. Aplikasi ini dirancang sebagai diary dengan data simulasi, bukan alat diagnosis alergi.
+Prototipe aplikasi kesehatan preventif berbasis Android untuk mencatat paparan makanan dan keluhan alergi. Aplikasi ini berfungsi sebagai *food allergy diary* berbasis edukasi dan self-monitoring menggunakan data simulasi, bukan sebagai alat diagnosis medis.
 
-## Status saat ini
+---
 
-Proyek Android Studio berbasis Kotlin dan Jetpack Compose sudah dibuat, dan aplikasi awal dari template telah dijalankan di ponsel. Form, validasi, riwayat, dan ringkasan AllergyTrack **belum diimplementasikan**.
+## 📌 Deskripsi Proyek
+- **Modul:** HT-08 AllergyTrack
+- **Mata Kuliah:** Pemrograman Bergerak (SSI3140)
+- **Program Studi:** Sistem Informasi — Universitas Ma Chung
+- **Dosen Pengampu:** Muhammad Nurwegiono, S.Kom., M.Kom.
+- **Platform:** Android Studio, Kotlin, Jetpack Compose, Material 3 (Single Screen / Satu Layar)
 
-## Rencana fitur UTS
+---
 
-- Satu layar yang dapat digulir untuk mencatat tanggal dan jam makan, makanan, kategori keluhan, jam keluhan muncul, tindakan, dan catatan tambahan.
-- Validasi input wajib dan waktu, tombol tambah catatan serta reset form.
-- Daftar catatan sementara dengan empty state dan kartu riwayat.
-- Ringkasan jumlah paparan, jumlah per kategori keluhan, dan makanan yang paling sering dicatat.
-- Pesan umum untuk mencari pertolongan medis dalam keadaan darurat, tanpa klaim diagnosis.
+## 🚀 Fitur Utama UTS
+1. **Header & Disclaimer Medis:**  
+   Menampilkan judul aplikasi, deskripsi, kode modul `HT-08`, dan banner peringatan darurat/disclaimer etika kesehatan.
+2. **Formulir "Catatan Baru" dengan Interactive Picker:**  
+   - Tanggal paparan menggunakan **DatePicker (Kalender)** dialog.
+   - Jam makan & Jam keluhan menggunakan **TimePicker (Jam Analog/Digital)** dialog.
+   - Kategori keluhan (Dropdown: Kulit, Pencernaan, Pernapasan, Lainnya).
+   - Kolom teks tambahan *"Catatan untuk kategori lainnya"* yang otomatis muncul ketika opsi "Lainnya" dipilih.
+   - Field opsional untuk Tindakan dan Catatan Tambahan.
+   - Validasi input dengan teks pesan kesalahan berwarna merah.
+3. **Tombol Aksi Tambah & Reset:**  
+   Tombol *Tambah Catatan* untuk menyimpan data valid dan tombol *Reset* untuk mengosongkan seluruh isian form.
+4. **Ringkasan Statistik Otomatis:**  
+   Secara real-time mengalkulasi Total Paparan, Keluhan Per Kategori, dan Makanan Paling Sering Dicatat.
+5. **Riwayat Catatan & Empty State:**  
+   Menampilkan *Empty State* ("Belum ada catatan.") saat data kosong, dan menampilkan daftar kartu riwayat catatan secara berurutan saat data ditambahkan.
 
-Data hanya akan disimpan sementara selama aplikasi berjalan. Database dan CRUD lengkap direncanakan untuk tahap UAS.
+---
 
-## Menjalankan proyek
+## 🛠️ Arsitektur & Penulisan Kode
+Seluruh arsitektur komponen Jetpack Compose, model data, logika validasi, dan pengujian aplikasi ditulis secara mandiri oleh mahasiswa dengan struktur modular:
+```
+com.example.allergytrack/
+├── MainActivity.kt                  # Layar Utama Compose (AllergyTrackApp)
+├── model/
+│   ├── AllergyRecord.kt             # Data class model catatan alergi
+│   └── AllergyFormState.kt          # State holder input form & error
+├── util/
+│   ├── AllergyValidator.kt          # Logika validasi input form
+│   └── AllergySummaryCalculator.kt  # Logika kalkulasi statistik ringkasan
+└── ui/
+    └── components/
+        ├── HeaderSection.kt         # Komponen Header & Banner Darurat
+        ├── FormSection.kt           # Komponen Form Input, DatePicker, TimePicker, & Dropdown
+        ├── FormButtons.kt           # Komponen Tombol Tambah & Reset
+        ├── SummarySection.kt        # Komponen Kartu Ringkasan
+        ├── AllergyRecordCard.kt     # Komponen Kartu Item Catatan
+        └── HistorySection.kt        # Komponen Seksi Riwayat & Empty State
+```
 
-1. Buka folder proyek ini di Android Studio.
-2. Tunggu Gradle Sync selesai.
-3. Pilih emulator atau ponsel Android yang terhubung, lalu jalankan konfigurasi `app`.
+---
 
-Proyek saat ini memakai Minimum SDK API 24, Jetpack Compose, dan Material 3.
+## 💻 Cara Menjalankan Aplikasi
+1. Buka folder proyek ini di **Android Studio**.
+2. Tunggu hingga **Gradle Sync** selesai sepenuhnya.
+3. Sambungkan emulator Android atau perangkat fisik (Minimum SDK API 24).
+4. Klik tombol **Run App ▶️** (`Shift + F10`).
 
-## Wireframe
+---
 
-- [Kondisi awal](docs/wireframe.png)
-- [Setelah satu catatan ditambahkan](docs/wireframe-setelah-catatan.png)
-- [File Figma yang dapat diedit](https://www.figma.com/design/JPvNfnmlo3gLt3VcjDOije)
+## 📄 Berkas Pengumpulan & Dokumentasi
+- 📝 **Laporan Kontribusi:** [`CONTRIBUTIONS.md`](CONTRIBUTIONS.md)
+- 🤖 **Catatan Penggunaan AI:** [`AI_USAGE.md`](AI_USAGE.md)
+- 🧪 **Laporan Test Cases:** [`docs/test-cases.md`](docs/test-cases.md)
 
-## Dokumentasi lanjutan
+---
 
-Hasil pengujian, screenshot aplikasi, kontribusi anggota, APK, dan rincian implementasi akan ditambahkan selama pengerjaan UTS. Penggunaan AI yang memengaruhi proyek dicatat di [AI_USAGE.md](AI_USAGE.md).
+## 🔮 Rencana Kelanjutan pada UAS
+- Integrasi **Room Database** dan **SQLite** untuk penyimpanan data persisten.
+- Implementasi **CRUD Lengkap** (Create, Read, Update, Delete) pada catatan alergi.
+- Navigasi beberapa layar menggunakan **Navigation Compose**.
+- Fitur pencarian (*search*) dan *filter* riwayat berdasarkan tanggal atau kategori keluhan.
