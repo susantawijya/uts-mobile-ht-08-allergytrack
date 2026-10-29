@@ -1,6 +1,7 @@
 package com.example.allergytrack.ui.components
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -125,41 +126,51 @@ fun FormSection(
 
         Spacer(modifier = Modifier.height(12.dp))
 
-        OutlinedTextField(
-            value = formState.tanggalPaparan,
-            onValueChange = {},
-            readOnly = true,
-            label = { Text("Tanggal paparan") },
-            placeholder = { Text("Pilih tanggal paparan") },
-            isError = formState.tanggalError != null,
-            supportingText = {
-                formState.tanggalError?.let {
-                    Text(text = it, color = MaterialTheme.colorScheme.error)
-                }
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable { showDatePicker = true }
-        )
+        Box(modifier = Modifier.fillMaxWidth()) {
+            OutlinedTextField(
+                value = formState.tanggalPaparan,
+                onValueChange = {},
+                readOnly = true,
+                label = { Text("Tanggal paparan") },
+                placeholder = { Text("Pilih tanggal paparan") },
+                isError = formState.tanggalError != null,
+                supportingText = {
+                    formState.tanggalError?.let {
+                        Text(text = it, color = MaterialTheme.colorScheme.error)
+                    }
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Box(
+                modifier = Modifier
+                    .matchParentSize()
+                    .clickable { showDatePicker = true }
+            )
+        }
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        OutlinedTextField(
-            value = formState.jamMakan,
-            onValueChange = {},
-            readOnly = true,
-            label = { Text("Jam makan (HH:mm)") },
-            placeholder = { Text("Pilih jam makan") },
-            isError = formState.jamMakanError != null,
-            supportingText = {
-                formState.jamMakanError?.let {
-                    Text(text = it, color = MaterialTheme.colorScheme.error)
-                }
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable { showJamMakanPicker = true }
-        )
+        Box(modifier = Modifier.fillMaxWidth()) {
+            OutlinedTextField(
+                value = formState.jamMakan,
+                onValueChange = {},
+                readOnly = true,
+                label = { Text("Jam makan (HH:mm)") },
+                placeholder = { Text("Pilih jam makan") },
+                isError = formState.jamMakanError != null,
+                supportingText = {
+                    formState.jamMakanError?.let {
+                        Text(text = it, color = MaterialTheme.colorScheme.error)
+                    }
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Box(
+                modifier = Modifier
+                    .matchParentSize()
+                    .clickable { showJamMakanPicker = true }
+            )
+        }
 
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -232,22 +243,27 @@ fun FormSection(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        OutlinedTextField(
-            value = formState.jamKeluhan,
-            onValueChange = {},
-            readOnly = true,
-            label = { Text("Jam keluhan muncul (HH:mm)") },
-            placeholder = { Text("Pilih jam keluhan muncul") },
-            isError = formState.jamKeluhanError != null,
-            supportingText = {
-                formState.jamKeluhanError?.let {
-                    Text(text = it, color = MaterialTheme.colorScheme.error)
-                }
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable { showJamKeluhanPicker = true }
-        )
+        Box(modifier = Modifier.fillMaxWidth()) {
+            OutlinedTextField(
+                value = formState.jamKeluhan,
+                onValueChange = {},
+                readOnly = true,
+                label = { Text("Jam keluhan muncul (HH:mm)") },
+                placeholder = { Text("Pilih jam keluhan muncul") },
+                isError = formState.jamKeluhanError != null,
+                supportingText = {
+                    formState.jamKeluhanError?.let {
+                        Text(text = it, color = MaterialTheme.colorScheme.error)
+                    }
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Box(
+                modifier = Modifier
+                    .matchParentSize()
+                    .clickable { showJamKeluhanPicker = true }
+            )
+        }
 
         Spacer(modifier = Modifier.height(8.dp))
 
