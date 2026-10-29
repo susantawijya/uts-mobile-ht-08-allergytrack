@@ -5,6 +5,7 @@ data class AllergyFormState(
     val jamMakan: String = "",
     val namaMakanan: String = "",
     val kategoriKeluhan: String = "",
+    val keluhanLainnya: String = "",
     val jamKeluhan: String = "",
     val tindakan: String = "",
     val catatanTambahan: String = "",

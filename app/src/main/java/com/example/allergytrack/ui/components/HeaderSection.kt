@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+
 @Composable
 fun HeaderSection(modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxWidth()) {
@@ -36,7 +37,6 @@ fun HeaderSection(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Banner Peringatan Darurat (Disclaimer Medis)
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),

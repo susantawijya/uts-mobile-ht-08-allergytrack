@@ -1,4 +1,5 @@
 package com.example.allergytrack.model
+
 data class AllergyRecord(
     val id: Long = System.currentTimeMillis(),
     val tanggalPaparan: String,
@@ -9,7 +10,6 @@ data class AllergyRecord(
     val tindakan: String = "",
     val catatanTambahan: String = ""
 )
-
 
 object AllergyCategories {
     const val KULIT = "Kulit"
